@@ -29,6 +29,9 @@ port = os.getenv("SMTP_SERVER_PORT")
 my_url = os.getenv("LINK_TO_SCRAPE")
 my_subject = os.getenv("SUBJECT")
 my_message = os.getenv("MESSAGE")
+wait_item = os.getenv("WAIT_FOR_ITEM")
+find_item = os.getenv("WHAT_TO_FIND")
+class_item = os.getenv("WHAT_CLASS_TO_FIND")
 
 # Initialize stored listings in memory
 stored_listings = None
@@ -70,7 +73,7 @@ def fetch_current_listings(url):
         time.sleep(initial_pause)
 
         # Wait for the initial elements to load
-        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'list-item')))
+        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, wait_item)))
 
         # Randomly scroll down the page to mimic human behavior
         scroll_pause_time = random.uniform(0.5, 2)
@@ -90,7 +93,7 @@ def fetch_current_listings(url):
         soup = BeautifulSoup(html_str, 'html.parser')
 
         # Find all <div> elements with IDs starting with 'object-title-'
-        section_count = len(soup.find_all('section', class_='list-item ng-scope'))
+        section_count = len(soup.find_all(find_item, class_=class_item))
         # Return the number of listings
         print("number of listings is " + str(section_count))
         return section_count
@@ -181,7 +184,7 @@ def reschedule_job():
     Reschedule the job with a random time interval.
     """
     schedule.clear('job')
-    interval = random.randint(1, 10)
+    interval = 1
     schedule.every(interval).minutes.do(job).tag('job')
     print(f"Job rescheduled to run in {interval} minutes.")
 
