@@ -24,6 +24,9 @@ SMTP_SERVER_PORT=587
 LINK_TO_SCRAPE=https://example.com/housing
 SUBJECT="New Housing Listings Available"
 MESSAGE="There are new housing listings available. Check them out!"
+WAIT_FOR_ITEM="list-item"
+WHAT_TO_FIND="section"
+WHAT_CLASS_TO_FIND="list-item my-list-scope"
 
 
 ## Installation
