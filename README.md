@@ -1,6 +1,9 @@
 # SimpleCrawler
 
-I made this Housing Bot as the housing market in the Netherlands is very competitive especially for students and I needed a fast way to start getting the necessary notifications when a new listing is published on a specific website. This is a web crawler designed to scrape housing listings from a specified URL, check for new listings, and send email notifications to two specified recipients.
+I made this Housing Bot as the housing market in the Netherlands is very competitive especially for students and I needed a fast way to start getting the necessary notifications when a new listing is published on a specific website. This is a web crawler designed to scrape housing listings from a specified URL, check for new listings, and send email notifications to two specified recipients. 
+
+# Update 
+It helped me respond immediately to a property, and since the website I used it on provides a first come, first serve service, it secured me housing in Delft, Netherlands.
 
 ## Features
 - Scrapes housing listings from a specified URL.
